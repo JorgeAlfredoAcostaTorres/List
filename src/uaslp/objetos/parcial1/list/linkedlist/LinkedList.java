@@ -2,10 +2,23 @@ package uaslp.objetos.parcial1.list.linkedlist;
 
 public class LinkedList {
     private Node head;
-    private Node Tail;
+    private Node tail;
+    private int size;
 
     public void addAtTail(String data) {
-        //
+        Node node = new Node();
+
+        node.data = data;
+
+        if(size == 0) {
+            head = node;
+        } else {
+            tail.next = node;
+            node.previous = tail;
+        }
+
+        tail = node;
+        size++;
     }
     public void addAtFront(String data) {
         //
