@@ -6,4 +6,7 @@ class Node { //Las clases solo pueden ser públicas o package-private
     Node next;
     Node previous;
 
+    Node(String data) {
+        this.data = data;
+    }
 }

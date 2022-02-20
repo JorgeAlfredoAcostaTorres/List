@@ -6,9 +6,7 @@ public class LinkedList {
     private int size;
 
     public void addAtTail(String data) {
-        Node node = new Node();
-
-        node.data = data;
+        Node node = new Node(data);
 
         if(size == 0) {
             head = node;
@@ -21,7 +19,18 @@ public class LinkedList {
         size++;
     }
     public void addAtFront(String data) {
-        //
+        Node node = new Node(data);
+
+        if(size == 0) {
+            tail = node;
+        } else {
+            head.previous = node;
+        }
+
+        node.next = head;
+        head = node;
+
+        size++;
     }
     public void remove(int index) {
         //
