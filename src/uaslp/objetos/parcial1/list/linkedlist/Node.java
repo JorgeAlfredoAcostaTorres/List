@@ -1,11 +1,11 @@
 package uaslp.objetos.parcial1.list.linkedlist;
 
-public class Node {
-    String data;
-    Node next;
-    Node previous;
+public class Node<T> {
+    T data;
+    Node<T> next;
+    Node<T> previous;
 
-    Node(String data) {
+    Node(T data) {
         this.data = data;
     }
 }

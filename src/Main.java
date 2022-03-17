@@ -7,12 +7,12 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("With ArrayList");
-        newMetodo(new ArrayList(), new ArrayList(), new ArrayList());
+        newMetodo(new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         System.out.println("With LinkedList");
-        newMetodo(new LinkedList(), new LinkedList(), new LinkedList());
+        newMetodo(new LinkedList<>(), new LinkedList<>(), new LinkedList<>());
     }
 
-    public static void newMetodo(List team1, List team2, List team3) {
+    public static void newMetodo(List<String> team1, List<String> team2, List<String> team3) {
         team1.addAtTail("Jesús");
         team1.addAtTail("Salomón");
         team1.addAtTail("Yael");
@@ -23,7 +23,7 @@ public class Main {
 
         team3.addAtFront("Imelda");
 
-        Iterator iterator;
+        Iterator<String> iterator;
 
         iterator = team1.getIterator();
 
