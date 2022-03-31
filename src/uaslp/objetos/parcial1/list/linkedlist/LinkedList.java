@@ -2,6 +2,8 @@ package uaslp.objetos.parcial1.list.linkedlist;
 
 import uaslp.objetos.parcial1.list.Iterator;
 import uaslp.objetos.parcial1.list.List;
+import uaslp.objetos.parcial1.list.exception.NotNullValuesAllowedException;
+import uaslp.objetos.parcial1.list.exception.NotValidIndexException;
 
 public class LinkedList<T> implements List<T> {
     private Node<T> head;
@@ -9,7 +11,11 @@ public class LinkedList<T> implements List<T> {
     private int size;
 
     @Override
-    public void addAtTail(T data) {
+    public void addAtTail(T data) throws NotNullValuesAllowedException {
+        if(data == null) {
+            throw new NotNullValuesAllowedException();
+        }
+
         Node<T> node = new Node<>(data);
 
         if(size == 0) {
@@ -24,7 +30,11 @@ public class LinkedList<T> implements List<T> {
     }
 
     @Override
-    public void addAtFront(T data) {
+    public void addAtFront(T data) throws NotNullValuesAllowedException{
+        if(data == null) {
+            throw new NotNullValuesAllowedException();
+        }
+
         Node<T> node = new Node<>(data);
 
         if(size == 0) {
@@ -40,7 +50,7 @@ public class LinkedList<T> implements List<T> {
     }
 
     @Override
-    public void remove(int index) {
+    public void remove(int index) throws NotValidIndexException {
         Node<T> node = findNode(index);
 
         if (node == null) {
@@ -76,7 +86,11 @@ public class LinkedList<T> implements List<T> {
     }
 
     @Override
-    public void setAt(int index, T data) {
+    public void setAt(int index, T data) throws NotValidIndexException, NotNullValuesAllowedException{
+        if(data == null) {
+            throw new NotNullValuesAllowedException();
+        }
+
         Node<T> node = findNode(index);
 
         if(node != null) {
@@ -85,7 +99,7 @@ public class LinkedList<T> implements List<T> {
     }
 
     @Override
-    public T getAt(int index) {
+    public T getAt(int index) throws NotValidIndexException{
         Node<T> node = findNode(index);
 
         return node == null ? null : node.data;
@@ -101,7 +115,11 @@ public class LinkedList<T> implements List<T> {
         return new LinkedListIterator<>(head);
     }
 
-    private Node<T> findNode(int index) {
+    private Node<T> findNode(int index) throws NotValidIndexException{
+        if(index < 0 || index >= size) {
+            throw new NotValidIndexException(index);
+        }
+
         if(index < 0 || index >= size) {
             return null;
         }

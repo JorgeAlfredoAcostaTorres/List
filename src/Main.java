@@ -1,18 +1,34 @@
-import uaslp.objetos.parcial1.list.array.list.ArrayList;
-import uaslp.objetos.parcial1.list.linkedlist.LinkedList;
-import uaslp.objetos.parcial1.list.List;
 import uaslp.objetos.parcial1.list.Iterator;
+import uaslp.objetos.parcial1.list.List;
+import uaslp.objetos.parcial1.list.exception.NotNullValuesAllowedException;
+import uaslp.objetos.parcial1.list.exception.NotValidIndexException;
+import uaslp.objetos.parcial1.list.linkedlist.LinkedList;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("With ArrayList");
-        newMetodo(new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        /* System.out.println("With ArrayList");
+        try {
+            newMetodo(new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        } catch (Exception e) {
+            System.out.println("Ocurrió un error: " + e.getMessage());
+        } */
+
         System.out.println("With LinkedList");
-        newMetodo(new LinkedList<>(), new LinkedList<>(), new LinkedList<>());
+        try {
+            newMetodo(new LinkedList<>(), new LinkedList<>(), new LinkedList<>());
+        } catch (NotValidIndexException e) {
+            System.out.println("Error: " + e.getMessage());
+        } catch (NotNullValuesAllowedException ex) {
+            System.out.println(ex.getMessage());
+        }
+        System.out.println("El programa no ha fallado");
     }
 
-    public static void newMetodo(List<String> team1, List<String> team2, List<String> team3) {
+    public static void newMetodo(List<String> team1, List<String> team2, List<String> team3) throws NotValidIndexException, NotNullValuesAllowedException {
+        //team1.remove(5);
+        team1.addAtTail(null);
+
         team1.addAtTail("Jesús");
         team1.addAtTail("Salomón");
         team1.addAtTail("Yael");
