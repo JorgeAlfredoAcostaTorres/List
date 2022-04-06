@@ -53,18 +53,11 @@ public class LinkedList<T> implements List<T> {
     public void remove(int index) throws NotValidIndexException {
         Node<T> node = findNode(index);
 
-        if (node == null) {
-            return;
-        }
-
         if (size == 1) {
             head = null;
             tail = null;
         } else if (node == head) {
             head = node.next;
-            if (head != null) {
-                head.previous = null;
-            }
         } else if (node == tail) {
             tail = node.previous;
             if (tail != null) {
@@ -93,9 +86,7 @@ public class LinkedList<T> implements List<T> {
 
         Node<T> node = findNode(index);
 
-        if(node != null) {
-            node.data = data;
-        }
+        node.data = data;
     }
 
     @Override
@@ -120,9 +111,9 @@ public class LinkedList<T> implements List<T> {
             throw new NotValidIndexException(index);
         }
 
-        if(index < 0 || index >= size) {
+        /* if(index < 0 || index >= size) {
             return null;
-        }
+        } */
 
         Node<T> node = head;
         int currentIndex = 0;
