@@ -106,14 +106,10 @@ public class LinkedList<T> implements List<T> {
         return new LinkedListIterator<>(head);
     }
 
-    private Node<T> findNode(int index) throws NotValidIndexException{
+    private Node<T> findNode(int index) throws NotValidIndexException {
         if(index < 0 || index >= size) {
             throw new NotValidIndexException(index);
         }
-
-        /* if(index < 0 || index >= size) {
-            return null;
-        } */
 
         Node<T> node = head;
         int currentIndex = 0;

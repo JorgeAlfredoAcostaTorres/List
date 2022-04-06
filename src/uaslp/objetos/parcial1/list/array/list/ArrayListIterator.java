@@ -1,6 +1,7 @@
 package uaslp.objetos.parcial1.list.array.list;
 
 import uaslp.objetos.parcial1.list.Iterator;
+import uaslp.objetos.parcial1.list.exception.NotValidIndexException;
 
 public class ArrayListIterator<T> implements Iterator<T> {
     private final ArrayList<T> arrayList;
@@ -16,7 +17,7 @@ public class ArrayListIterator<T> implements Iterator<T> {
     }
 
     @Override
-    public T next() {
+    public T next() throws NotValidIndexException {
         T data = arrayList.getAt(currentItem);
 
         currentItem++;
